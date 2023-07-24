@@ -296,6 +296,24 @@ section
 
 }
 
+.description{
+  color:red;
+}
+
+/* Style par défaut de la description */
+.projet .description2 {
+  display: none;
+}
+
+/* Affichage de la description au survol */
+.projet:hover .description2 {
+  display: block;
+  background-color: #fff; /* Couleur de fond de la description */
+  padding: 5px; /* Espacement intérieur de la description */
+  border: 1px solid #ccc; /* Bordure de la description */
+}
+
+
 .contener {
     width: 80%;
     margin: auto;
@@ -602,6 +620,16 @@ footer
 
   .skill-name{
     padding: 10px;
+  }
+
+  footer{
+    height: 200px;
+  }
+
+  .reseaux img{
+    width: 50%;
+    height: 50px;
+   
   }
     
     
