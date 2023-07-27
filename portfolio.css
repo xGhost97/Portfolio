@@ -578,17 +578,95 @@ footer
 
 
 /* MEDIA QUERIES */
-@media all and (max-width: 1000px){
-    .projet{ width: 100%; margin: 15px auto;}
-    .projet img {width: 100%; min-width: auto; height:auto; margin: 15px auto;}
-    .projet .picture {width: 100%;height: auto;}
-    .contener { width: 100%; margin: 15px auto;}
-    #logo{width: 100%;margin: 15px auto;}
+
+@media all and (min-width: 1601px){
+
+  header{
+    height: 870px;
+
+  }
+
+  header img{
+    height: 865px;
+  }
+
+  .arrow-down{
+    display: none;
+  }
+}
+
+
+
+@media all and (max-width: 1559px){
+
+  header{
+    height: 950px;
+
+  }
+
+  header img{
+    height: 945px;
+  }
+
+  .arrow-down{
+    top: 850px;
+  }
+
+  #projets{
+    width: 100% ;
+  }
+
+  .projet{
+    margin: 12px;
+  }
+ }
+
+ @media all and (max-width: 1024px){
+  .arrow-down{
+    top: 580px;
+    left: 550px;
+  }
+  header{
+    height: 665px;
+
+  }
+
+  header img{
+    height: 665px;
+  }
+
+  .projet{
+    width: 370px;
+    height: 350px;
+    margin: 10px;
+  }
+
+  .projet img {width: 100%; }
+  .projet .picture {width: 100%;}
+  .contener { width: 100%; }
+ }
+
+
+
+@media all and (max-width: 992px){
+  .projet{ width: 90%;}
+  .projet img {width: 100%; }
+  .projet .picture {width: 100%;}
+  .contener { width: 100%; }
+   
     footer{
       width: 100%;
     }
     img{
       height: 10px;
+    }
+
+    header img{
+      height: 180px;
+    }
+
+    header {
+      height: 180px;
     }
 
     .text-overlay{
@@ -602,11 +680,7 @@ footer
       display: none;
     }
 
-    .picture img{
-      width: 100%;
-      height: 100%;
    
-    }
     
   nav {
   width: 100%;
@@ -623,15 +697,18 @@ footer
   }
 
   footer{
-    height: 200px;
+    height: 140px;
+    width: 100%;
   }
 
   .reseaux img{
-    width: 50%;
+    width: 20%;
     height: 50px;
-   
+    object-fit: contain;
   }
     
     
 }
+
+
 
