@@ -4,15 +4,35 @@
 	box-sizing: border-box;
 }
 
-a{
-	color: red;
-	font-size: 30px;
-	padding: 20px;
+/* Styles de base pour le bouton */
+.home-button {
+	display: block;
+	width: 100px;
+	padding: 10px;
+	text-align: center;
+	background-color: red;
+	color: white;
 	text-decoration: none;
-}
-ul{
-	list-style-type: none;
-}
+	border-radius: 5px;
+  }
+  
+  /* Style pour le survol du bouton */
+  .home-button:hover {
+	background-color: red;
+  }
+  
+  /* Style pour l'animation au survol */
+  .home-button:hover::before {
+	content: "\2190"; /* Code Unicode pour la flèche gauche (←) */
+	margin-right: 5px;
+	transition: margin-right 0.2s ease-in-out;
+  }
+  
+  /* Style pour le retour à l'état normal après l'animation au survol */
+  .home-button:hover::before {
+	margin-right: 0;
+  }
+  
 
 body {
 	display: flex;
@@ -57,7 +77,7 @@ body {
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	height: 80vh;
+	height: 90vh;
 	border-radius: 30px;
 	cursor: pointer;
 	flex: 0.5;
