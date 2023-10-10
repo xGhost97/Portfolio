@@ -2,6 +2,8 @@
     box-sizing: border-box;
 }
 
+
+
 h1{
     font-family: 'Shadows Into Light', cursive;
     font-weight: bold;
@@ -12,10 +14,7 @@ h1{
  
 }
 /* SURVOLE DU TITRE */
-h1:hover{
-    color: red;
-    
-}
+
 .arrow-down p{
     color: #ffffff;
     font-size: 25px;
@@ -38,7 +37,7 @@ h1:hover{
     position: absolute;
     bottom: 0;
     margin: 0 auto;
-    color: #fff;
+    color: red;
     font-size: 1.125rem;
     font-weight: 500;
     left: 800px;
@@ -157,6 +156,19 @@ a
 .titre-compétences{
   color: #222288;
   font-size: 27px;
+}
+
+#compétences{
+  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+.skill {
+ 
+  margin-bottom: 10px; 
 }
 
 a:focus
@@ -338,9 +350,7 @@ section
     margin-bottom: 20px;
   }
   
-  .skill {
-    margin-bottom: 10px;
-  }
+  
   
   .skill-name {
     font-weight: bold;
@@ -351,149 +361,7 @@ section
     align-items: center;
   }
   
-  .progress-bar {
-    width: 100%;
-    height: 10px;
-    background-color: #f2f2f2;
-  }
   
-  .progress1 {
-    height: 100%;
-    background-color: #6cb2eb;
-    animation: progressAnimation1 5s ease-in-out ;
-    animation-delay: 3s;
-  }
-
-  .progress2 {
-    height: 100%;
-    background-color: #6cb2eb;
-    animation: progressAnimation2 5s ease-in-out;
-    animation-delay: 3s;
-  }
-
-  .progress3 {
-    height: 100%;
-    background-color: #6cb2eb;
-    animation: progressAnimation3 5s ease-in-out ;
-    animation-delay: 3s;
-  }
-
-  .progress4 {
-    height: 100%;
-    background-color: #6cb2eb;
-    animation: progressAnimation4 5s ease-in-out ;
-    animation-delay: 3s;
-  }
-
-  .progress5 {
-    height: 100%;
-    background-color: #6cb2eb;
-    animation: progressAnimation5 5s ease-in-out ;
-    animation-delay: 3s;
-  }
-
-  .progress6{
-    height: 100%;
-    background-color: #6cb2eb;
-    animation: progressAnimation6 5s ease-in-out ;
-    animation-delay: 3s;
-  }
-
-  .progress7 {
-    height: 100%;
-    background-color: #6cb2eb;
-    animation: progressAnimation7 5s ease-in-out ;
-    animation-delay: 3s;
-  }
-
-  .progress8 {
-    height: 100%;
-    background-color: #6cb2eb;
-    animation: progressAnimation8 5s ease-in-out ;
-    animation-delay: 3s;
-  }
-
-  .progress9 {
-    height: 100%;
-    background-color: #6cb2eb;
-    animation: progressAnimation9 5s ease-in-out ;
-    animation-delay: 3s;
-  }
-
-  
-  @keyframes progressAnimation1 {
-    0% {
-      width: 0;
-    }
-    100% {
-      width: 90%;
-    }
-  }
-  @keyframes progressAnimation2 {
-    0% {
-      width: 0;
-    }
-    100% {
-      width: 70%;
-    }
-  }
-  @keyframes progressAnimation3 {
-    0% {
-      width: 0;
-    }
-    100% {
-      width: 50%;
-    }
-  }
-  @keyframes progressAnimation4 {
-    0% {
-      width: 0;
-    }
-    100% {
-      width: 40%;
-    }
-  }
-  @keyframes progressAnimation5 {
-    0% {
-      width: 0;
-    }
-    100% {
-      width: 60%;
-    }
-  }
-  @keyframes progressAnimation6 {
-    0% {
-      width: 0;
-    }
-    100% {
-      width: 80%;
-    }
-  }
-  @keyframes progressAnimation7 {
-    0% {
-      width: 0;
-    }
-    100% {
-      width: 50%;
-    }
-  }
-  @keyframes progressAnimation8 {
-    0% {
-      width: 0;
-    }
-    100% {
-      width: 50%;
-    }
-  }
-
-  @keyframes progressAnimation9 {
-    0% {
-      width: 0;
-    }
-    100% {
-      width: 40%;
-    }
-  }
 
   #a-propos p{
     font-size: 24px;
