@@ -125,4 +125,7 @@
     list-style-type: circle;
   }
 
+  p, ul{
+    font-size: 18px;
+  }
 
