@@ -3,9 +3,9 @@
 :root {
     --color-bg: #0a0e1a;
     --color-surface: #12182b;
-    --color-accent: #ff4757;
-    --color-accent-light: #ff6b7a;
-    --color-text: #ffffff;
+    --color-accent: #e2e8f0;
+    --color-accent-light: #ec4899;
+    --color-text: #4f46e5;
     --color-text-muted: #a0a5b8;
     --color-overlay: rgba(10, 14, 26, 0.95);
     
