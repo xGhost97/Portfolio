@@ -1,81 +1,134 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6KY61LKNFZ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-6KY61LKNFZ');
-</script>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="Text/css" href="gallerie.css">
-    <title>Gallerie</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,500&family=PT+Sans+Narrow&display=swap" rel="stylesheet"><link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&family=Roboto&family=Shadows+Into+Light&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width"/>
+    <title>Galerie - Certifications & Projets</title>
     <link rel="icon" sizes="16x16" type="image/png" href="favicon_3.png">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-
+    <link rel="stylesheet" href="gallerie.css">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6KY61LKNFZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-6KY61LKNFZ');
+    </script>
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5XCZRQ4D3E"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-5XCZRQ4D3E');
-</script>
-
 <body>
-    
-    
-    <a href="index.html" class="home-button">Accueil</a>
-    
- 
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <a href="index.html" class="home-button">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Accueil
+        </a>
+    </nav>
 
-<div class="container">
-	<div class="panel panel-1">
-		
-	</div>
-	<div class="panel panel-2">
-		
-	</div>
-	<div class="panel panel-3 active">
-		
-	</div>
-	<div class="panel panel-4">
-		
-	</div>
-	<div class="panel panel-5">
-		
-	</div>
+    <!-- Header -->
+    <header class="gallery-header">
+        <h1 class="gallery-title">Certifications & Réalisations</h1>
+        <p class="gallery-subtitle">Une sélection de mes accomplissements professionnels</p>
+    </header>
 
-    <div class="panel panel-6">
-		
-	</div>
-</div>
-  
-  
+    <!-- Gallery Grid -->
+    <main class="gallery-container">
+        <div class="gallery-grid">
+            <!-- Item 1 -->
+            <article class="gallery-item" data-index="0">
+                <div class="gallery-item-inner">
+                    <img src="/Certification/Certification_Herbergement_de_site.jpg" alt="Certification Hébergement de site" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-item-title">Hébergement de site</h3>
+                        <p class="gallery-item-description">Certification professionnelle</p>
+                    </div>
+                </div>
+            </article>
 
-        
+            <!-- Item 2 -->
+            <article class="gallery-item" data-index="1">
+                <div class="gallery-item-inner">
+                    <img src="/Certification/Certification_HTML5_CSS3.jpg" alt="Certification HTML5 & CSS3" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-item-title">HTML5 & CSS3</h3>
+                        <p class="gallery-item-description">Développement web frontend</p>
+                    </div>
+                </div>
+            </article>
 
-        <!-- CONTACT -->
-        
-       
+            <!-- Item 3 -->
+            <article class="gallery-item" data-index="2">
+                <div class="gallery-item-inner">
+                    <img src="/Certification/Certificat-Git-Github.jpg" alt="Certification Git & GitHub" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-item-title">Git & GitHub</h3>
+                        <p class="gallery-item-description">Gestion de versions</p>
+                    </div>
+                </div>
+            </article>
 
-    
-</div>                
+            <!-- Item 4 -->
+            <article class="gallery-item" data-index="3">
+                <div class="gallery-item-inner">
+                    <img src="/Certification/Certification-JavaScript-Dynamique.jpg" alt="Certification JavaScript Dynamique" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-item-title">JavaScript Dynamique</h3>
+                        <p class="gallery-item-description">Programmation interactive</p>
+                    </div>
+                </div>
+            </article>
 
-      
-    
-<script src="gallerie.js"></script>
+            <!-- Item 5 -->
+            <article class="gallery-item" data-index="4">
+                <div class="gallery-item-inner">
+                    <img src="/Certification/Certification Openclassroom JavaScript.jpg" alt="Certification OpenClassrooms JavaScript" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-item-title">JavaScript Avancé</h3>
+                        <p class="gallery-item-description">OpenClassrooms</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Item 6 -->
+            <article class="gallery-item" data-index="5">
+                <div class="gallery-item-inner">
+                    <img src="/Certification/Certification Veille Informationnelle.jpg" alt="Certification Veille Informationnelle" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-item-title">Veille Informationnelle</h3>
+                        <p class="gallery-item-description">Méthodologie professionnelle</p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" aria-label="Fermer">&times;</button>
+        <button class="lightbox-prev" aria-label="Précédent">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 18l-6-6 6-6"/>
+            </svg>
+        </button>
+        <button class="lightbox-next" aria-label="Suivant">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 18l6-6-6-6"/>
+            </svg>
+        </button>
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightbox-img">
+            <div class="lightbox-caption">
+                <h3 id="lightbox-title"></h3>
+                <p id="lightbox-description"></p>
+            </div>
+        </div>
+        <div class="lightbox-counter">
+            <span id="lightbox-current">1</span> / <span id="lightbox-total">6</span>
+        </div>
+    </div>
+
+    <script src="gallerie.js"></script>
 </body>
 </html>
