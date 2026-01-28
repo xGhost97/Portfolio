@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocAntilles - Location de Biens aux Antilles</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <span class="lettre">L</span>
+            <span class="lettre">O</span>
+            <span class="lettre">C</span>
+            <span class="lettre">A</span>
+            <span class="lettre">N</span>
+            <span class="lettre">T</span>
+            <span class="lettre">I</span>
+            <span class="lettre">L</span>
+            <span class="lettre">L</span>
+            <span class="lettre">E</span>
+            <span class="lettre">S</span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1><i class="fas fa-umbrella-beach"></i> LocAntilles</h1>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#hebergements"><i class="fas fa-home"></i> Hébergements</a></li>
+                        <li><a href="#voitures"><i class="fas fa-car"></i> Voitures</a></li>
+                        <li><a href="#motos"><i class="fas fa-motorcycle"></i> Motos</a></li>
+                        <li><a href="#activites"><i class="fas fa-hiking"></i> Activités</a></li>
+                        <li><a href="#favoris" class="favoris-link">
+                            <i class="fas fa-heart"></i> 
+                            Favoris 
+                            <span class="favoris-count" id="favorisCount">0</span>
+                        </a></li>
+                    </ul>
+                </nav>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Découvrez les Antilles</h1>
+                <p class="hero-subtitle">Hébergements, véhicules et activités pour des vacances inoubliables</p>
+                
+                <!-- Search Bar -->
+                <div class="search-bar">
+                    <div class="search-input-group">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input type="text" id="searchLocation" placeholder="Où souhaitez-vous aller ?">
+                    </div>
+                    <div class="search-input-group">
+                        <i class="fas fa-calendar-alt"></i>
+                        <input type="date" id="searchDateDebut">
+                    </div>
+                    <div class="search-input-group">
+                        <i class="fas fa-calendar-alt"></i>
+                        <input type="date" id="searchDateFin">
+                    </div>
+                    <button class="search-btn" id="searchBtn">
+                        <i class="fas fa-search"></i> Rechercher
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters Section -->
+    <section class="filters-section">
+        <div class="container">
+            <h2><i class="fas fa-filter"></i> Filtres</h2>
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="filterType">Type de bien</label>
+                    <select id="filterType">
+                        <option value="tous">Tous</option>
+                        <option value="hebergement">Hébergements</option>
+                        <option value="voiture">Voitures</option>
+                        <option value="moto">Motos</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filterPrixMin">Prix min (€/jour)</label>
+                    <input type="number" id="filterPrixMin" placeholder="0">
+                </div>
+                <div class="filter-group">
+                    <label for="filterPrixMax">Prix max (€/jour)</label>
+                    <input type="number" id="filterPrixMax" placeholder="500">
+                </div>
+                <div class="filter-group">
+                    <label for="filterLocalisation">Localisation</label>
+                    <select id="filterLocalisation">
+                        <option value="toutes">Toutes les îles</option>
+                        <option value="guadeloupe">Guadeloupe</option>
+                        <option value="martinique">Martinique</option>
+                        <option value="saint-martin">Saint-Martin</option>
+                        <option value="saint-barthelemy">Saint-Barthélemy</option>
+                    </select>
+                </div>
+                <button class="filter-apply-btn" id="applyFilters">
+                    <i class="fas fa-check"></i> Appliquer
+                </button>
+                <button class="filter-reset-btn" id="resetFilters">
+                    <i class="fas fa-redo"></i> Réinitialiser
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hébergements Section -->
+    <section id="hebergements" class="listings-section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-home"></i> Hébergements</h2>
+                <p>Trouvez le logement parfait pour vos vacances</p>
+            </div>
+            <div class="listings-grid" id="hebergementsGrid">
+                <!-- Les hébergements seront injectés ici par JavaScript -->
+            </div>
+            <button class="load-more-btn" data-category="hebergement">
+                <i class="fas fa-plus-circle"></i> Afficher plus
+            </button>
+        </div>
+    </section>
+
+    <!-- Les plus populaires (Hébergements) -->
+    <section class="populaires-section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-chart-line"></i> Les plus populaires</h2>
+            </div>
+            <div class="populaires-grid" id="populairesHebergements">
+                <!-- Injecté par JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Voitures Section -->
+    <section id="voitures" class="listings-section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-car"></i> Voitures</h2>
+                <p>Louez un véhicule pour explorer les îles</p>
+            </div>
+            <div class="listings-grid" id="voituresGrid">
+                <!-- Les voitures seront injectées ici par JavaScript -->
+            </div>
+            <button class="load-more-btn" data-category="voiture">
+                <i class="fas fa-plus-circle"></i> Afficher plus
+            </button>
+        </div>
+    </section>
+
+    <!-- Motos Section -->
+    <section id="motos" class="listings-section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-motorcycle"></i> Motos</h2>
+                <p>Parcourez les routes en toute liberté</p>
+            </div>
+            <div class="listings-grid" id="motosGrid">
+                <!-- Les motos seront injectées ici par JavaScript -->
+            </div>
+            <button class="load-more-btn" data-category="moto">
+                <i class="fas fa-plus-circle"></i> Afficher plus
+            </button>
+        </div>
+    </section>
+
+    <!-- Activités Section -->
+    <section id="activites" class="activites-section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-hiking"></i> Activités aux Antilles</h2>
+                <p>Découvrez les meilleures activités de la région</p>
+            </div>
+            <div class="activites-grid" id="activitesGrid">
+                <!-- Les activités seront injectées ici par JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Favoris Section -->
+    <section id="favoris" class="favoris-section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-heart"></i> Mes Favoris</h2>
+                <p id="favorisMessage">Vous n'avez pas encore de favoris</p>
+            </div>
+            <div class="listings-grid" id="favorisGrid">
+                <!-- Les favoris seront injectés ici par JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal détails -->
+    <div class="modal" id="detailsModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="modalBody">
+                <!-- Contenu du modal injecté par JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>À propos</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-info-circle"></i> Fonctionnement du site</a></li>
+                        <li><a href="#"><i class="fas fa-file-contract"></i> Conditions générales</a></li>
+                        <li><a href="#"><i class="fas fa-shield-alt"></i> Données et confidentialité</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Nos hébergements</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-award"></i> Charte de qualité</a></li>
+                        <li><a href="#"><i class="fas fa-plus-circle"></i> Proposer votre bien</a></li>
+                        <li><a href="#"><i class="fas fa-question-circle"></i> Devenir partenaire</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Assistance</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-headset"></i> Centre d'aide</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> Nous contacter</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> +590 690 12 34 56</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Suivez-nous</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 LocAntilles. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification Toast -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage"></span>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
