@@ -33,10 +33,10 @@ body::before {
     width: 100%;
     height: 100%;
     background: 
-        radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.2) 0%, transparent 50%),
         radial-gradient(circle at 80% 80%, rgba(236, 72, 153, 0.1) 0%, transparent 50%),
         radial-gradient(circle at 40% 20%, rgba(6, 182, 212, 0.08) 0%, transparent 40%);
-    animation: backgroundShift 15s ease-in-out infinite;
+    animation: backgroundShift 5s ease-in-out infinite;
     pointer-events: none;
     z-index: 0;
 }
@@ -52,7 +52,9 @@ body::before {
     }
 }
 
-/* Floating particles */
+/* ✨ PARTICULES SCINTILLANTES - EFFET ÉTOILES AMÉLIORÉ ✨ */
+
+/* Couche 1 : Étoiles flottantes avec mouvement */
 body::after {
     content: '';
     position: fixed;
@@ -61,25 +63,153 @@ body::after {
     width: 100%;
     height: 100%;
     background-image: 
-        radial-gradient(2px 2px at 20% 30%, rgba(255, 255, 255, 0.3), transparent),
-        radial-gradient(2px 2px at 60% 70%, rgba(255, 255, 255, 0.3), transparent),
-        radial-gradient(1px 1px at 50% 50%, rgba(255, 255, 255, 0.3), transparent),
-        radial-gradient(1px 1px at 80% 10%, rgba(255, 255, 255, 0.3), transparent),
-        radial-gradient(2px 2px at 90% 60%, rgba(255, 255, 255, 0.3), transparent),
-        radial-gradient(1px 1px at 33% 80%, rgba(255, 255, 255, 0.3), transparent),
-        radial-gradient(1px 1px at 15% 90%, rgba(255, 255, 255, 0.3), transparent);
+        /* Grandes étoiles brillantes (2px) */
+        radial-gradient(circle, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.4) 1px, transparent 2px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3) 1px, transparent 2px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.4) 1px, transparent 2px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3) 1px, transparent 1.5px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.4) 1px, transparent 2px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.4) 1px, transparent 2px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3) 1px, transparent 1.5px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.4) 1px, transparent 2px),
+        
+        /* Étoiles moyennes (1.5px) */
+        radial-gradient(circle, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.2) 0.8px, transparent 1.5px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3) 0.8px, transparent 1.5px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.2) 0.8px, transparent 1.5px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3) 1px, transparent 2px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.2) 0.8px, transparent 1.5px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3) 1px, transparent 2px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.2) 0.8px, transparent 1.5px),
+        
+        /* Petites étoiles (1px) */
+        radial-gradient(circle, rgba(255, 255, 255, 0.6), transparent 1px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.7), transparent 1px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.5), transparent 1px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.6), transparent 1px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.5), transparent 1px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.7), transparent 1px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent 1px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.6), transparent 1px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.5), transparent 1px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent 1px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.6), transparent 1px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.5), transparent 1px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.6), transparent 1px);
+    
+    background-position: 
+        /* Grandes étoiles */
+        15% 20%, 45% 15%, 75% 25%, 88% 40%, 92% 75%,
+        /* Moyennes */
+        25% 45%, 55% 38%, 85% 52%, 10% 65%, 68% 80%,
+        /* Petites */
+        35% 10%, 5% 30%, 50% 60%, 95% 20%, 72% 50%,
+        18% 85%, 60% 28%, 82% 68%, 40% 72%, 78% 12%;
+    
     background-size: 200% 200%;
-    animation: floatingParticles 20s linear infinite;
+    background-repeat: no-repeat;
+    animation: floatingParticles 30s linear infinite;
     pointer-events: none;
     z-index: 0;
 }
 
 @keyframes floatingParticles {
     0% {
-        background-position: 0% 0%;
+        background-position: 
+            15% 20%, 45% 15%, 75% 25%, 88% 40%, 92% 75%,
+            25% 45%, 55% 38%, 85% 52%, 10% 65%, 68% 80%,
+            35% 10%, 5% 30%, 50% 60%, 95% 20%, 72% 50%,
+            18% 85%, 60% 28%, 82% 68%, 40% 72%, 78% 12%;
     }
     100% {
-        background-position: 100% 100%;
+        background-position: 
+            115% 120%, 145% 115%, 175% 125%, 188% 140%, 192% 175%,
+            125% 145%, 155% 138%, 185% 152%, 110% 165%, 168% 180%,
+            135% 110%, 105% 130%, 150% 160%, 195% 120%, 172% 150%,
+            118% 185%, 160% 128%, 182% 168%, 140% 172%, 178% 112%;
+    }
+}
+
+/* Couche 2 : Étoiles scintillantes statiques (effet twinkle) */
+.stars-twinkle {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.stars-twinkle::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle, rgba(255, 255, 255, 0.8), transparent 2px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.6), transparent 1.5px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.7), transparent 2px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.5), transparent 1px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.8), transparent 1.5px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.6), transparent 1px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.7), transparent 2px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.5), transparent 1.5px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.6), transparent 1px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.8), transparent 2px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.5), transparent 1px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.7), transparent 1.5px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.6), transparent 1px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.5), transparent 1px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.7), transparent 2px);
+    
+    background-position: 
+        8% 12%, 22% 28%, 38% 42%, 52% 18%, 63% 75%,
+        12% 55%, 28% 82%, 42% 35%, 58% 68%, 73% 22%,
+        88% 45%, 93% 88%, 48% 8%, 17% 48%, 67% 58%;
+    
+    background-repeat: no-repeat;
+    animation: twinkle 3s ease-in-out infinite;
+}
+
+/* Couche 3 : Encore plus d'étoiles qui scintillent avec un délai */
+.stars-twinkle::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle, rgba(255, 255, 255, 0.7), transparent 1.5px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.5), transparent 1px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.6), transparent 1.5px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.8), transparent 2px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.5), transparent 1px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.7), transparent 1.5px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.6), transparent 1px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.5), transparent 1px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.8), transparent 2px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.6), transparent 1.5px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.5), transparent 1px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.7), transparent 1.5px);
+    
+    background-position: 
+        13% 33%, 31% 17%, 44% 56%, 59% 81%, 71% 44%,
+        84% 29%, 96% 71%, 26% 63%, 47% 91%, 66% 7%,
+        81% 53%, 36% 24%;
+    
+    background-repeat: no-repeat;
+    animation: twinkle 4s ease-in-out 1.5s infinite;
+}
+
+/* Animation de scintillement */
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
     }
 }
 
