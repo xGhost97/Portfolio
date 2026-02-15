@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Système Solaire 3D</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon-transparent-large.svg">
+</head>
+<body>
+
+  <div id="canvas-container"></div>
+
+  <div id="hud-top">
+    <h1>Système Solaire</h1>
+    <p>Exploration interactive</p>
+  </div>
+
+  <div id="controls-hint">
+    <span><span class="key">Clic</span> Sélectionner</span>
+    <span><span class="key">Glisser</span> Orbiter</span>
+    <span><span class="key">Molette</span> Zoom</span>
+  </div>
+
+  <div id="speed-control">
+    <label>Vitesse</label>
+    <input type="range" id="speed-slider" min="0" max="5" step="0.1" value="1">
+    <span id="speed-value">1x</span>
+  </div>
+
+  <div id="info-panel">
+    <div class="panel-header">
+      <button class="close-btn" onclick="closePanel()">✕</button>
+      <canvas class="planet-icon" id="planet-icon-canvas" width="160" height="160"></canvas>
+      <div class="planet-name" id="planet-name"></div>
+      <div class="planet-subtitle" id="planet-subtitle"></div>
+    </div>
+    <div class="panel-body" id="panel-body"></div>
+  </div>
+
+  <!-- Librairie Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- Modules du projet (ordre de chargement important) -->
+  <script src="js/planetData.js"></script>   <!-- 1. Données -->
+  <script src="js/textures.js"></script>     <!-- 2. Textures procédurales -->
+  <script src="js/scene.js"></script>        <!-- 3. Scène, caméra, éclairage -->
+  <script src="js/planets.js"></script>      <!-- 4. Création des planètes -->
+  <script src="js/ui.js"></script>           <!-- 5. Interface utilisateur -->
+  <script src="js/controls.js"></script>     <!-- 6. Contrôles caméra -->
+  <script src="js/main.js"></script>         <!-- 7. Boucle d'animation -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6KY61LKNFZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6KY61LKNFZ');
+
+  
+</script>
+</body>
+</html>
