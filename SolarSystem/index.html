@@ -5,9 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Système Solaire 3D</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/svg+xml" href="../assets/favicon-transparent-large.svg">
 </head>
 <body>
+
+  <!-- Loader -->
+  <div id="loader">
+    <h2>Chargement</h2>
+    <div id="load-bar"><div id="load-fill"></div></div>
+  </div>
 
   <div id="canvas-container"></div>
 
@@ -16,48 +21,61 @@
     <p>Exploration interactive</p>
   </div>
 
+  <!-- Barre de recherche -->
+  <div id="search-bar">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input type="text" id="search-input" placeholder="Rechercher une planète…" autocomplete="off">
+  </div>
+  <div id="search-results"></div>
+
+  <!-- Navigation rapide planètes -->
+  <div id="planet-nav"></div>
+
+  <!-- Bouton retour -->
+  <button id="back-btn" onclick="backToOverview()">← Vue d'ensemble</button>
+
   <div id="controls-hint">
     <span><span class="key">Clic</span> Sélectionner</span>
     <span><span class="key">Glisser</span> Orbiter</span>
     <span><span class="key">Molette</span> Zoom</span>
+    <span><span class="key">Échap</span> Retour</span>
   </div>
 
-  <div id="speed-control">
-    <label>Vitesse</label>
-    <input type="range" id="speed-slider" min="0" max="5" step="0.1" value="1">
-    <span id="speed-value">1x</span>
+  <div id="bottom-controls">
+    <div id="speed-control">
+      <label>Vitesse</label>
+      <input type="range" id="speed-slider" min="0" max="5" step="0.1" value="1">
+      <span id="speed-value">1x</span>
+    </div>
+    <div id="sound-control">
+      <label>Son</label>
+      <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.3">
+      <span id="volume-icon" onclick="toggleMute()">🔊</span>
+    </div>
   </div>
 
   <div id="info-panel">
     <div class="panel-header">
       <button class="close-btn" onclick="closePanel()">✕</button>
-      <canvas class="planet-icon" id="planet-icon-canvas" width="160" height="160"></canvas>
+      <canvas class="planet-icon" id="planet-icon-canvas" width="144" height="144"></canvas>
       <div class="planet-name" id="planet-name"></div>
       <div class="planet-subtitle" id="planet-subtitle"></div>
     </div>
     <div class="panel-body" id="panel-body"></div>
   </div>
 
-  <!-- Librairie Three.js -->
+  <!-- Three.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
-  <!-- Modules du projet (ordre de chargement important) -->
+  <!-- Modules (l'ordre est important) -->
   <script src="js/planetData.js"></script>   <!-- 1. Données -->
   <script src="js/textures.js"></script>     <!-- 2. Textures procédurales -->
   <script src="js/scene.js"></script>        <!-- 3. Scène, caméra, éclairage -->
-  <script src="js/planets.js"></script>      <!-- 4. Création des planètes -->
-  <script src="js/ui.js"></script>           <!-- 5. Interface utilisateur -->
-  <script src="js/controls.js"></script>     <!-- 6. Contrôles caméra -->
-  <script src="js/main.js"></script>         <!-- 7. Boucle d'animation -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6KY61LKNFZ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script src="js/planets.js"></script>      <!-- 4. Planètes, lunes, astéroïdes -->
+  <script src="js/audio.js"></script>        <!-- 5. Audio ambiant -->
+  <script src="js/ui.js"></script>           <!-- 6. Interface utilisateur -->
+  <script src="js/controls.js"></script>     <!-- 7. Contrôles caméra + fly-to -->
+  <script src="js/main.js"></script>         <!-- 8. Boucle d'animation -->
 
-  gtag('config', 'G-6KY61LKNFZ');
-
-  
-</script>
 </body>
 </html>
