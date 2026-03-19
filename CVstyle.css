@@ -412,10 +412,10 @@ body {
     line-height: 1.6;
 }
 
-/* Responsive */
+/* Responsive — Mobile (≤768px) */
 @media (max-width: 768px) {
     body {
-        padding: 1rem;
+        padding: 0.5rem;
     }
 
     .cv-header {
@@ -454,12 +454,19 @@ body {
     }
 
     .contact-info {
-        flex-direction: column;
-        gap: 0.8rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        justify-content: center;
     }
 
+    .contact-item {
+        font-size: 0.85rem;
+    }
+
+    /* Garder 2 colonnes pour les centres d'intérêt */
     .interests-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .tech-grid {
@@ -471,6 +478,52 @@ body {
         height: 42px;
         top: 1rem;
         right: 1rem;
+    }
+}
+
+/* Responsive — Petits téléphones (≤480px) */
+@media (max-width: 480px) {
+    body {
+        padding: 0;
+    }
+
+    .cv-container {
+        border-radius: 0;
+    }
+
+    .cv-header {
+        padding: 1.5rem 1rem;
+    }
+
+    .cv-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .cv-header .subtitle {
+        font-size: 1rem;
+    }
+
+    .cv-body {
+        padding: 1rem;
+        gap: 1.5rem;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .interests-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .section {
+        margin-bottom: 1.5rem;
+    }
+
+    .timeline-item {
+        padding-left: 1.5rem;
     }
 }
 

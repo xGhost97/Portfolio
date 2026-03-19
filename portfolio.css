@@ -509,7 +509,7 @@ nav .container {
 
 /* Section Container */
 section {
-    padding: 2rem 1rem;
+    padding: 5rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
     position: relative;
@@ -928,7 +928,22 @@ footer {
     cursor: pointer;
 }
 
-/* Responsive */
+/* Responsive — Tablette paysage (769px–1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    nav .container {
+        padding: 1.2rem 1.5rem;
+    }
+
+    section {
+        padding: 4rem 1.5rem;
+    }
+}
+
+/* Responsive — Mobile (≤768px) */
 @media (max-width: 768px) {
     .mobile-menu-btn {
         display: block;
@@ -984,9 +999,70 @@ footer {
 
     .btn {
         text-align: center;
+        width: 100%;
     }
 
     section {
-        padding: 4rem 1.5rem;
+        padding: 3rem 1rem;
+    }
+
+    .section-subtitle {
+        margin-bottom: 2.5rem;
+    }
+}
+
+/* Responsive — Petits téléphones (≤480px) */
+@media (max-width: 480px) {
+    nav .container {
+        padding: 1rem;
+    }
+
+    .profile-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .hero-content {
+        padding: 1rem;
+    }
+
+    .hero-profile {
+        margin-bottom: 2rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .skill-card {
+        padding: 1.2rem 0.8rem;
+    }
+
+    .contact-form {
+        padding: 1.5rem 1rem;
+    }
+
+    section {
+        padding: 2.5rem 0.8rem;
+    }
+
+    footer {
+        padding: 2rem 1rem;
+    }
+
+    .social-links {
+        gap: 1rem;
+    }
+}
+
+/* Accessibilité — Réduction de mouvement */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }
