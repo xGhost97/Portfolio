@@ -1,12 +1,141 @@
 // ============================================
+// TRADUCTION FR / EN
+// ============================================
+// Le français est écrit directement dans le HTML : il est relu au chargement.
+// Seul l'anglais est défini ici, clé par clé (attributs data-i18n*).
+const translations = {
+    en: {
+        'meta.title': 'Pierluigi SOPHIE - Web Developer',
+        'nav.home': 'Home',
+        'nav.projects': 'Projects',
+        'nav.skills': 'Skills',
+        'nav.contact': 'Contact',
+        'hero.subtitle': 'Front-end Developer',
+        'hero.ctaProjects': 'See my projects',
+        'hero.ctaContact': 'Contact me',
+        'hero.typed': [
+            'I build modern, responsive websites',
+            'Passionate about the web and design',
+            'Always ready for new challenges'
+        ],
+        'about.title': 'About',
+        'about.text': 'Passionate about web development, I build modern, high-performance digital experiences. Explore my portfolio to discover my work and technical expertise.',
+        'projects.title': 'Projects',
+        'projects.subtitle': 'Discover my latest work',
+        'p1.title': 'Curriculum Vitae',
+        'p1.date': 'July 15, 2023',
+        'p1.description': 'Online résumé built with HTML/CSS to present my background professionally.',
+        'p2.title': 'Gallery',
+        'p2.date': 'November 28, 2022',
+        'p2.description': 'A gallery showcasing the certifications I have earned along the way.',
+        'p3.title': 'Sophie Bluel Project',
+        'p3.date': 'May 14, 2023',
+        'p3.description': 'This project taught me DOM manipulation in JavaScript, user login and API calls.',
+        'p4.title': 'Kasa Project',
+        'p4.date': 'June 23, 2023',
+        'p4.description': 'Rental website built entirely with React — click HOME when you land on the site.',
+        'p5.title': 'Photographer website',
+        'p5.date': 'May 29, 2023',
+        'p5.description': 'A photographer\'s website presenting her photos and work.',
+        'p6.title': 'Solar System',
+        'p6.date': 'January 4, 2026',
+        'p6.description': 'Our beautiful solar system',
+        'p7.title': 'Bomb Island',
+        'p7.date': '2026',
+        'p7.description': '3D game playable in the browser: aim, charge and throw your bombs across the island.',
+        'p8.title': 'LocAntilles',
+        'p8.date': 'October 10, 2025',
+        'p8.description': 'Platform to book activities, stays and services in Martinique with local providers.',
+        'p9.title': 'Work in progress',
+        'p9.date': '',
+        'p9.description': 'Next project in progress',
+        'skills.title': 'Skills',
+        'skills.subtitle': 'The technologies I work with',
+        'skills.learning': 'Currently learning',
+        'skills.badge': 'In progress',
+        'contact.title': 'Contact me',
+        'contact.text': 'An opportunity, a project or a question?<br>Feel free to write to me directly.',
+        'contact.email': 'Your email',
+        'contact.subject': 'Subject',
+        'contact.subjectPlaceholder': 'Subject of your message',
+        'contact.message': 'Message',
+        'contact.messagePlaceholder': 'Your message...',
+        'contact.send': 'Send message',
+        'contact.sent': '✅ Message sent!',
+        'contact.error': '❌ Sending failed',
+        'footer.rights': '&copy; Pierluigi SOPHIE - All rights reserved'
+    },
+    fr: {
+        'hero.typed': [
+            'Je crée des sites web modernes et réactif',
+            'Passionné par le web et le design',
+            'Je suis toujours prêt pour de nouveaux défis'
+        ],
+        'contact.sent': '✅ Message envoyé !',
+        'contact.error': '❌ Erreur d\'envoi'
+    }
+};
+
+// Récupère le texte français d'origine depuis le HTML
+const frenchSource = translations.fr;
+frenchSource['meta.title'] = document.title;
+document.querySelectorAll('[data-i18n]').forEach(el => {
+    frenchSource[el.dataset.i18n] = el.textContent;
+});
+document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    frenchSource[el.dataset.i18nHtml] = el.innerHTML;
+});
+document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    frenchSource[el.dataset.i18nPlaceholder] = el.placeholder;
+});
+
+let currentLang = 'fr';
+
+function t(key) {
+    const value = translations[currentLang][key];
+    return value !== undefined ? value : translations.fr[key];
+}
+
+function setLanguage(lang) {
+    if (!translations[lang]) return;
+    currentLang = lang;
+    document.documentElement.lang = lang;
+    document.title = t('meta.title');
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        el.textContent = t(el.dataset.i18n);
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        el.innerHTML = t(el.dataset.i18nHtml);
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        el.placeholder = t(el.dataset.i18nPlaceholder);
+    });
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        const isActive = btn.dataset.lang === lang;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', isActive);
+    });
+
+    // Relance l'effet de typing dans la nouvelle langue
+    texts = t('hero.typed');
+    textIndex = 0;
+    charIndex = 0;
+    isDeleting = false;
+
+    try { localStorage.setItem('lang', lang); } catch (e) {}
+}
+
+document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+});
+
+// ============================================
 // EFFET DE TYPING
 // ============================================
 const typedTextElement = document.getElementById('typedText');
-const texts = [
-    'Je crée des sites web modernes et réactif',
-    'Passionné par le web et le design',
-    'Je suis toujours prêt pour de nouveaux défis'
-];
+let texts = translations.fr['hero.typed'];
 
 let textIndex = 0;
 let charIndex = 0;
@@ -39,6 +168,12 @@ function typeText() {
 }
 
 setTimeout(typeText, 1000);
+
+// Applique la langue mémorisée lors de la dernière visite
+try {
+    const savedLang = localStorage.getItem('lang');
+    if (savedLang && savedLang !== 'fr') setLanguage(savedLang);
+} catch (e) {}
 
 // ============================================
 // MENU MOBILE
@@ -123,11 +258,11 @@ form.addEventListener('submit', function(e) {
         .then(function(response) {
             submitBtn.classList.remove('loading');
             submitBtn.classList.add('success');
-            submitBtn.querySelector('.btn-text').textContent = '✅ Message envoyé !';
+            submitBtn.querySelector('.btn-text').textContent = t('contact.sent');
             
             setTimeout(() => {
                 submitBtn.classList.remove('success');
-                submitBtn.querySelector('.btn-text').textContent = 'Envoyer le message';
+                submitBtn.querySelector('.btn-text').textContent = t('contact.send');
                 submitBtn.disabled = false;
                 form.reset();
             }, 3000);
@@ -135,11 +270,11 @@ form.addEventListener('submit', function(e) {
         }, function(error) {
             submitBtn.classList.remove('loading');
             submitBtn.classList.add('error');
-            submitBtn.querySelector('.btn-text').textContent = '❌ Erreur d\'envoi';
+            submitBtn.querySelector('.btn-text').textContent = t('contact.error');
             
             setTimeout(() => {
                 submitBtn.classList.remove('error');
-                submitBtn.querySelector('.btn-text').textContent = 'Envoyer le message';
+                submitBtn.querySelector('.btn-text').textContent = t('contact.send');
                 submitBtn.disabled = false;
             }, 3000);
         });

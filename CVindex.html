@@ -9,13 +9,20 @@
 </head>
 <body>
     <!-- Bouton télécharger CV -->
-    <a href="./assets/CV_Pierluigi_SOPHIE.pdf" download class="cv-download-btn" title="Télécharger le CV en PDF">
+    <a href="./assets/CV_Pierluigi_SOPHIE.pdf" download class="cv-download-btn" title="Télécharger le CV en PDF" data-i18n-title="cv.download">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
             <polyline points="7 10 12 15 17 10"/>
             <line x1="12" y1="15" x2="12" y2="3"/>
         </svg>
     </a>
+
+    <!-- Sélecteur de langue -->
+    <div class="lang-switch" role="group" aria-label="Langue / Language">
+        <button type="button" class="lang-btn active" data-lang="fr" aria-pressed="true">FR</button>
+        <span class="lang-sep" aria-hidden="true">/</span>
+        <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+    </div>
 
     <div class="cv-container">
         <!-- Header -->
@@ -27,7 +34,7 @@
                     </div>
                     <div class="header-text">
                         <h1>Pierluigi SOPHIE</h1>
-                        <div class="subtitle">Développeur Front-End</div>
+                        <div class="subtitle" data-i18n="cv.subtitle">Développeur Front-End</div>
                     </div>
                 </div>
                 
@@ -71,7 +78,7 @@
                 <!-- Compétences -->
                 <!-- Stack Technique -->
                 <div class="section">
-                    <h2 class="section-title">Compétences</h2>
+                    <h2 class="section-title" data-i18n="cv.skills">Compétences</h2>
                     
                     <div class="tech-grid">
                         <div class="tech-item">HTML5</div>
@@ -90,29 +97,29 @@
                 </div>
                 <!-- Langues -->
                 <div class="section">
-                    <h2 class="section-title">Langues</h2>
+                    <h2 class="section-title" data-i18n="cv.languages">Langues</h2>
                     
                     <div class="language-item">
-                        <span class="language-name">Français</span>
-                        <span class="language-level">Natif</span>
+                        <span class="language-name" data-i18n="cv.french">Français</span>
+                        <span class="language-level" data-i18n="cv.native">Natif</span>
                     </div>
                     
                     <div class="language-item">
-                        <span class="language-name">Anglais</span>
-                        <span class="language-level">Professionnel</span>
+                        <span class="language-name" data-i18n="cv.english">Anglais</span>
+                        <span class="language-level" data-i18n="cv.professional">Professionnel</span>
                     </div>
                 </div>
 
                 <!-- Centres d'intérêt -->
                 <div class="section">
-                    <h2 class="section-title">Centres d'intérêt</h2>
+                    <h2 class="section-title" data-i18n="cv.interests">Centres d'intérêt</h2>
                     
                     <div class="interests-grid">
-                        <div class="interest-item">🎮 Jeux</div>
+                        <div class="interest-item" data-i18n="cv.games">🎮 Jeux</div>
                         <div class="interest-item">💻 Tech</div>
-                        <div class="interest-item">📚 Lecture</div>
-                        <div class="interest-item">🎵 Musique</div>
-                        <div class="interest-item">🔭 Astronomie</div>
+                        <div class="interest-item" data-i18n="cv.reading">📚 Lecture</div>
+                        <div class="interest-item" data-i18n="cv.music">🎵 Musique</div>
+                        <div class="interest-item" data-i18n="cv.astronomy">🔭 Astronomie</div>
                     </div>
                 </div>
             </div>
@@ -121,25 +128,25 @@
             <div class="right-column">
                 <!-- Profil -->
                 <div class="section">
-                    <h2 class="section-title">Profil</h2>
-                    <p class="profile-text">
+                    <h2 class="section-title" data-i18n="cv.profile">Profil</h2>
+                    <p class="profile-text" data-i18n="cv.profileText">
                         Développeur web passionné avec une expertise en JavaScript et React. Spécialisé dans la création d'applications web modernes et performantes. Toujours à la recherche de nouveaux défis et désireux d'apprendre les dernières technologies du web.
                     </p>
                 </div>
 
                 <!-- Expérience -->
                 <div class="section">
-                    <h2 class="section-title">Expérience Professionnelle</h2>
+                    <h2 class="section-title" data-i18n="cv.experience">Expérience Professionnelle</h2>
                     
                     <div class="timeline-item">
-                        <div class="timeline-date">2023 - Présent</div>
+                        <div class="timeline-date" data-i18n="cv.present">2023 - Présent</div>
                         <div class="timeline-title">Full-Stack</div>
-                        <div class="timeline-company">Projets Personnels</div>
+                        <div class="timeline-company" data-i18n="cv.personalProjects">Projets Personnels</div>
                         <div class="timeline-description">
                             <ul>
-                                <li>Développement d'applications web avec React et Node.js</li>
-                                <li>Intégration d'API REST et gestion de bases de données MongoDB</li>
-                                <li>Optimisation des performances et responsive design</li>
+                                <li data-i18n="cv.exp1a">Développement d'applications web avec React et Node.js</li>
+                                <li data-i18n="cv.exp1b">Intégration d'API REST et gestion de bases de données MongoDB</li>
+                                <li data-i18n="cv.exp1c">Optimisation des performances et responsive design</li>
                             </ul>
                         </div>
                     </div>
@@ -147,12 +154,12 @@
                     <div class="timeline-item">
                         <div class="timeline-date">2022 - 2023</div>
                         <div class="timeline-title"> Front-End</div>
-                        <div class="timeline-company">Projets Personnels</div>
+                        <div class="timeline-company" data-i18n="cv.personalProjects">Projets Personnels</div>
                         <div class="timeline-description">
                             <ul>
-                                <li>Création de sites web responsive avec HTML/CSS/JavaScript</li>
-                                <li>Utilisation de frameworks modernes (React, Vue.js)</li>
-                                <li>Gestion de versions avec Git et GitHub</li>
+                                <li data-i18n="cv.exp2a">Création de sites web responsive avec HTML/CSS/JavaScript</li>
+                                <li data-i18n="cv.exp2b">Utilisation de frameworks modernes (React, Vue.js)</li>
+                                <li data-i18n="cv.exp2c">Gestion de versions avec Git et GitHub</li>
                             </ul>
                         </div>
                     </div>
@@ -160,13 +167,13 @@
 
                 <!-- Formation -->
                 <div class="section">
-                    <h2 class="section-title">Formation</h2>
+                    <h2 class="section-title" data-i18n="cv.education">Formation</h2>
                     
                     <div class="timeline-item">
                         <div class="timeline-date">2022 - 2023</div>
-                        <div class="timeline-title">Développeur Web</div>
+                        <div class="timeline-title" data-i18n="cv.webDev">Développeur Web</div>
                         <div class="timeline-company">OpenClassrooms</div>
-                        <div class="timeline-description">
+                        <div class="timeline-description" data-i18n="cv.eduText">
                             Formation intensive en développement web full-stack couvrant HTML, CSS, JavaScript, React, Node.js, et MongoDB.
                         </div>
                     </div>
@@ -176,20 +183,20 @@
 
                 <!-- Projets Principaux -->
                 <div class="section">
-                    <h2 class="section-title">Projets Principaux</h2>
+                    <h2 class="section-title" data-i18n="cv.projects">Projets Principaux</h2>
                     
                     <div class="project-card">
-                        <div class="project-title">Projet Kasa</div>
+                        <div class="project-title" data-i18n="cv.kasa">Projet Kasa</div>
                         <div class="project-tech">React • JavaScript • Responsive Design</div>
-                        <div class="project-description">
+                        <div class="project-description" data-i18n="cv.kasaText">
                             Application de location immobilière développée entièrement avec React, incluant un système de navigation et d'affichage dynamique des annonces.
                         </div>
                     </div>
                     
                     <div class="project-card">
-                        <div class="project-title">Sophie Bluel - Portfolio Architecte</div>
+                        <div class="project-title" data-i18n="cv.bluel">Sophie Bluel - Portfolio Architecte</div>
                         <div class="project-tech">JavaScript • DOM • API REST</div>
-                        <div class="project-description">
+                        <div class="project-description" data-i18n="cv.bluelText">
                             Site portfolio interactif avec gestion d'authentification utilisateur, manipulation du DOM et intégration d'API pour la gestion dynamique des projets.
                         </div>
                     </div>
@@ -197,7 +204,7 @@
                     <div class="project-card">
                         <div class="project-title">LocAntilles</div>
                         <div class="project-tech">HTML • CSS • Responsive</div>
-                        <div class="project-description">
+                        <div class="project-description" data-i18n="cv.locText">
                             Site de location avec un design moderne et une intégration responsive optimisée pour tous les appareils.
                         </div>
                     </div>

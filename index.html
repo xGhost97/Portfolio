@@ -17,11 +17,16 @@
             <div class="logo">PS.</div>
             <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#accueil" onclick="closeMenu()">Accueil</a></li>
-                <li><a href="#projets" onclick="closeMenu()">Projets</a></li>
-                <li><a href="#competences" onclick="closeMenu()">Compétences</a></li>
-                <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+                <li><a href="#accueil" onclick="closeMenu()" data-i18n="nav.home">Accueil</a></li>
+                <li><a href="#projets" onclick="closeMenu()" data-i18n="nav.projects">Projets</a></li>
+                <li><a href="#competences" onclick="closeMenu()" data-i18n="nav.skills">Compétences</a></li>
+                <li><a href="#contact" onclick="closeMenu()" data-i18n="nav.contact">Contact</a></li>
             </ul>
+            <div class="lang-switch" role="group" aria-label="Langue / Language">
+                <button type="button" class="lang-btn active" data-lang="fr" aria-pressed="true">FR</button>
+                <span class="lang-sep" aria-hidden="true">/</span>
+                <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+            </div>
         </div>
     </nav>
 
@@ -35,21 +40,21 @@
                 <img src="./assets/Portrait professionnel d'un homme élégant.png" alt="Pierluigi SOPHIE" class="profile-image">
                 <div class="hero-text">
                     <h1>Pierluigi SOPHIE</h1>
-                    <p class="subtitle">Développeur Front-end</p>
+                    <p class="subtitle" data-i18n="hero.subtitle">Développeur Front-end</p>
                     <div class="typed-text" id="typedText"></div>
                 </div>
             </div>
             <div class="cta-buttons">
-                <a href="#projets" class="btn btn-primary">Voir mes projets</a>
-                <a href="#contact" class="btn btn-outline">Me contacter</a>
+                <a href="#projets" class="btn btn-primary" data-i18n="hero.ctaProjects">Voir mes projets</a>
+                <a href="#contact" class="btn btn-outline" data-i18n="hero.ctaContact">Me contacter</a>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about">
-        <h2 class="section-title">À propos</h2>
-        <p class="section-subtitle">
+        <h2 class="section-title" data-i18n="about.title">À propos</h2>
+        <p class="section-subtitle" data-i18n="about.text">
             Passionné par le développement web, je crée des expériences digitales modernes et performantes. 
             Explorez mon portfolio pour découvrir mes réalisations et mon expertise technique.
         </p>
@@ -57,18 +62,18 @@
 
     <!-- Projects Section -->
     <section id="projets">
-        <h2 class="section-title">Projets</h2>
-        <p class="section-subtitle">Découvrez mes dernières réalisations</p>
+        <h2 class="section-title" data-i18n="projects.title">Projets</h2>
+        <p class="section-subtitle" data-i18n="projects.subtitle">Découvrez mes dernières réalisations</p>
         
         <div class="projects-grid">
             <!-- Project 1 -->
             <a href="CVindex.html" class="project-card">
                 <img src="./assets/CV.png" alt="CV" class="project-image">
                 <div class="project-content">
-                    <h3 class="project-title">Curriculum Vitae</h3>
-                    <p class="project-date">15 Juillet 2023</p>
+                    <h3 class="project-title" data-i18n="p1.title">Curriculum Vitae</h3>
+                    <p class="project-date" data-i18n="p1.date">15 Juillet 2023</p>
                     <p class="project-tech">HTML / CSS</p>
-                    <p class="project-description">CV en ligne créé en HTML/CSS pour une présentation professionnelle de mon parcours.</p>
+                    <p class="project-description" data-i18n="p1.description">CV en ligne créé en HTML/CSS pour une présentation professionnelle de mon parcours.</p>
                 </div>
             </a>
 
@@ -76,10 +81,10 @@
             <a href="gallerie.html" class="project-card">
                 <img src="./assets/Certif.png" alt="Galerie" class="project-image">
                 <div class="project-content">
-                    <h3 class="project-title">Galerie</h3>
-                    <p class="project-date">28 Novembre 2022</p>
+                    <h3 class="project-title" data-i18n="p2.title">Galerie</h3>
+                    <p class="project-date" data-i18n="p2.date">28 Novembre 2022</p>
                     <p class="project-tech">HTML / CSS / JavaScript</p>
-                    <p class="project-description">Une galerie pour afficher les différentes certifications reçues au cours de mon parcours.</p>
+                    <p class="project-description" data-i18n="p2.description">Une galerie pour afficher les différentes certifications reçues au cours de mon parcours.</p>
                 </div>
             </a>
 
@@ -88,10 +93,10 @@
             <a href="./Projet-3-main/index.html" target="_blank" class="project-card">
                 <img src="./assets/Projet_Sophie_Bluel.png" alt="Sophie Bluel" class="project-image">
                 <div class="project-content">
-                    <h3 class="project-title">Projet Sophie Bluel</h3>
-                    <p class="project-date">14 Mai 2023</p>
+                    <h3 class="project-title" data-i18n="p3.title">Projet Sophie Bluel</h3>
+                    <p class="project-date" data-i18n="p3.date">14 Mai 2023</p>
                     <p class="project-tech">JavaScript</p>
-                    <p class="project-description">Ce projet m'a appris à gérer le DOM en JavaScript ainsi que la connexion d'un utilisateur et l'appel API.</p>
+                    <p class="project-description" data-i18n="p3.description">Ce projet m'a appris à gérer le DOM en JavaScript ainsi que la connexion d'un utilisateur et l'appel API.</p>
                 </div>
             </a>
 
@@ -99,10 +104,10 @@
             <a href="https://xghost97.github.io/Projet6/" target="_blank" class="project-card">
                 <img src="./assets/Projet_Kasa.png" alt="Kasa" class="project-image">
                 <div class="project-content">
-                    <h3 class="project-title">Projet Kasa</h3>
-                    <p class="project-date">23 Juin 2023</p>
+                    <h3 class="project-title" data-i18n="p4.title">Projet Kasa</h3>
+                    <p class="project-date" data-i18n="p4.date">23 Juin 2023</p>
                     <p class="project-tech">JavaScript / React</p>
-                    <p class="project-description">Site de location développé entièrement avec React, cliquer sur ACCUEIL à l'arrivée sur le site.</p>
+                    <p class="project-description" data-i18n="p4.description">Site de location développé entièrement avec React, cliquer sur ACCUEIL à l'arrivée sur le site.</p>
                 </div>
             </a>
 
@@ -110,10 +115,10 @@
             <a href="./Projet-5/nina.html" class="project-card">
                 <img src="./assets/nina.png" alt="Nina Photographe" class="project-image">
                 <div class="project-content">
-                    <h3 class="project-title">Site de photographe</h3>
-                    <p class="project-date">29 Mai 2023</p>
+                    <h3 class="project-title" data-i18n="p5.title">Site de photographe</h3>
+                    <p class="project-date" data-i18n="p5.date">29 Mai 2023</p>
                     <p class="project-tech">JavaScript</p>
-                    <p class="project-description">Site d'une photographe pour présenter ses différentes photos et réalisations.</p>
+                    <p class="project-description" data-i18n="p5.description">Site d'une photographe pour présenter ses différentes photos et réalisations.</p>
                 </div>
             </a>
 
@@ -121,20 +126,42 @@
             <a href="./SolarSystem/index.html" class="project-card">
                 <img src="./assets/SolarSystem.png" alt="Systeme Solaire" class="project-image">
                 <div class="project-content">
-                    <h3 class="project-title">Systeme Solaire</h3>
-                    <p class="project-date">04 Janvier 2026</p>
+                    <h3 class="project-title" data-i18n="p6.title">Systeme Solaire</h3>
+                    <p class="project-date" data-i18n="p6.date">04 Janvier 2026</p>
                     <p class="project-tech">HTML / CSS / JavaScript</p>
-                    <p class="project-description">Notre beau systeme solaire</p>
+                    <p class="project-description" data-i18n="p6.description">Notre beau systeme solaire</p>
+                </div>
+            </a>
+
+            <!-- Project 7 -->
+            <a href="https://bomb-island.onrender.com/" target="_blank" rel="noopener" class="project-card">
+                <img src="./assets/BombIsland.png" alt="Bomb Island" class="project-image">
+                <div class="project-content">
+                    <h3 class="project-title" data-i18n="p7.title">Bomb Island</h3>
+                    <p class="project-date" data-i18n="p7.date">2026</p>
+                    <p class="project-tech">JavaScript / Three.js</p>
+                    <p class="project-description" data-i18n="p7.description">Jeu 3D jouable dans le navigateur : visez, chargez et lancez vos bombes sur l'île.</p>
+                </div>
+            </a>
+
+            <!-- Project 8 -->
+            <a href="https://locantilles.fr/" target="_blank" rel="noopener" class="project-card">
+                <img src="./assets/LocAntilles3.png" alt="LocAntilles" class="project-image">
+                <div class="project-content">
+                    <h3 class="project-title" data-i18n="p8.title">LocAntilles</h3>
+                    <p class="project-date" data-i18n="p8.date">10 Octobre 2025</p>
+                    <p class="project-tech">HTML / CSS / JavaScript</p>
+                    <p class="project-description" data-i18n="p8.description">Plateforme pour réserver activités, séjours et services en Martinique auprès de prestataires locaux.</p>
                 </div>
             </a>
 
             <a href="./Travaux.html" class="project-card">
                 <img src="./assets/Construction.png" alt="En construction" class="project-image">
                 <div class="project-content">
-                    <h3 class="project-title">Projet en cours</h3>
-                    <p class="project-date"></p>
+                    <h3 class="project-title" data-i18n="p9.title">Projet en cours</h3>
+                    <p class="project-date" data-i18n="p9.date"></p>
                     <p class="project-tech"></p>
-                    <p class="project-description">Prochain projet en cours</p>
+                    <p class="project-description" data-i18n="p9.description">Prochain projet en cours</p>
                 </div>
             </a>
         </div>
@@ -142,8 +169,8 @@
 
     <!-- Skills Section -->
     <section id="competences">
-        <h2 class="section-title">Compétences</h2>
-        <p class="section-subtitle">Les technologies que je maîtrise</p>
+        <h2 class="section-title" data-i18n="skills.title">Compétences</h2>
+        <p class="section-subtitle" data-i18n="skills.subtitle">Les technologies que je maîtrise</p>
         
         <div class="skills-grid">
             <div class="skill-card">
@@ -251,7 +278,7 @@
             </div>
         </div>
 
-        <h3 class="section-subtitle" style="margin-top: 4rem;">En cours d'apprentissage</h3>
+        <h3 class="section-subtitle" style="margin-top: 4rem;" data-i18n="skills.learning">En cours d'apprentissage</h3>
         <div class="skills-grid">
             <div class="skill-card">
                 <div class="skill-icon">
@@ -260,7 +287,7 @@
                     </svg>
                 </div>
                 <div class="skill-name">TypeScript</div>
-                <span class="learning-badge">En cours</span>
+                <span class="learning-badge" data-i18n="skills.badge">En cours</span>
             </div>
             
             <div class="skill-card">
@@ -272,7 +299,7 @@
                     </svg>
                 </div>
                 <div class="skill-name">DevOps</div>
-                <span class="learning-badge">En cours</span>
+                <span class="learning-badge" data-i18n="skills.badge">En cours</span>
             </div>
             
             <div class="skill-card">
@@ -284,22 +311,22 @@
                     </svg>
                 </div>
                 <div class="skill-name">Angular</div>
-                <span class="learning-badge">En cours</span>
+                <span class="learning-badge" data-i18n="skills.badge">En cours</span>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact">
-        <h2 class="section-title">Me contacter</h2>
-        <p class="section-subtitle">
+        <h2 class="section-title" data-i18n="contact.title">Me contacter</h2>
+        <p class="section-subtitle" data-i18n-html="contact.text">
             Une opportunité, un projet ou une question ?<br>
             N'hésitez pas à m'écrire directement.
         </p>
 
         <form class="contact-form" id="contactForm">
             <div class="form-group">
-                <label for="email">Votre email</label>
+                <label for="email" data-i18n="contact.email">Votre email</label>
                 <input 
                     type="email" 
                     id="email" 
@@ -313,28 +340,30 @@
             </div>
 
             <div class="form-group">
-                <label for="subject">Objet</label>
+                <label for="subject" data-i18n="contact.subject">Objet</label>
                 <input 
                     type="text" 
                     id="subject" 
                     name="subject" 
                     required 
                     placeholder="Objet de votre message"
+                    data-i18n-placeholder="contact.subjectPlaceholder"
                 >
             </div>
 
             <div class="form-group">
-                <label for="message">Message</label>
+                <label for="message" data-i18n="contact.message">Message</label>
                 <textarea 
                     id="message" 
                     name="message" 
                     required 
                     placeholder="Votre message..."
+                    data-i18n-placeholder="contact.messagePlaceholder"
                 ></textarea>
             </div>
 
             <button type="submit" class="submit-btn" id="submitBtn">
-                <span class="btn-text">Envoyer le message</span>
+                <span class="btn-text" data-i18n="contact.send">Envoyer le message</span>
                 <div class="loader"></div>
             </button>
         </form>
@@ -354,7 +383,7 @@
                 </svg>
             </a>
         </div>
-        <p>&copy; Pierluigi SOPHIE - Tous droits réservés</p>
+        <p data-i18n-html="footer.rights">&copy; Pierluigi SOPHIE - Tous droits réservés</p>
 
         <div class="cursor-dot" id="cursorDot"></div>
     </footer>

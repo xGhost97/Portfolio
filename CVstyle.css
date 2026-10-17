@@ -77,6 +77,48 @@ body {
     transition: stroke 0.3s ease;
 }
 
+/* Sélecteur de langue FR / EN (à gauche du bouton de téléchargement) */
+.lang-switch {
+    position: fixed;
+    top: 1.5rem;
+    right: calc(1.5rem + 48px + 0.75rem);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    height: 48px;
+    padding: 0 1rem;
+    background: var(--bg);
+    border: 2px solid var(--primary);
+    border-radius: 999px;
+}
+
+.lang-btn {
+    background: none;
+    border: none;
+    padding: 0.25rem 0.1rem;
+    font: inherit;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.lang-btn:hover {
+    color: var(--primary);
+}
+
+.lang-btn.active {
+    color: var(--text);
+    font-weight: 700;
+}
+
+.lang-sep {
+    color: var(--text-light);
+    opacity: 0.5;
+}
+
 .cv-container {
     max-width: 900px;
     margin: 0 auto;
@@ -533,7 +575,8 @@ body {
 }
 
 @media print {
-    .cv-download-btn {
+    .cv-download-btn,
+    .lang-switch {
         display: none;
     }
 
