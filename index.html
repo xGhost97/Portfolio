@@ -24,6 +24,12 @@
 
     <link rel="icon" type="image/svg+xml" href="./assets/favicon-transparent-large.svg">
     <link rel="stylesheet" href="portfolio.css">
+    <!-- Applique le thème mémorisé avant l'affichage (évite un flash sombre/clair) -->
+    <script>
+        try {
+            if (localStorage.getItem('theme') === 'light') document.documentElement.dataset.theme = 'light';
+        } catch (e) {}
+    </script>
     <!-- Analytics Hub (mesure d'audience sans cookie) -->
     <script defer src="https://analytics-hub-relay.onrender.com/sdk.js" data-key="pk_Zdnf1uo9Uw67kgqwPtscd4yy" data-endpoint="https://analytics-hub-relay.onrender.com/collect"></script>
 </head>
@@ -47,6 +53,15 @@
                 <span class="lang-sep" aria-hidden="true">/</span>
                 <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
             </div>
+            <button type="button" class="theme-toggle" id="themeToggle" aria-label="Passer en mode clair">
+                <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="5"/>
+                    <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                </svg>
+            </button>
         </div>
     </nav>
 

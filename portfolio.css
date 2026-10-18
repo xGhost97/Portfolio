@@ -18,6 +18,12 @@ html {
     --text: white ;
     --text-muted: #94a3b8;
     --accent: #06b6d4;
+    --nav-bg: rgba(15, 23, 42, 0.9);
+    --nav-bg-solid: rgba(15, 23, 42, 0.98);
+    --border: rgba(255, 255, 255, 0.1);
+    --surface-soft: rgba(255, 255, 255, 0.05);
+    --card-shadow: rgba(0, 0, 0, 0.3);
+    --note: #fbbf24;
 }
 
 body {
@@ -260,10 +266,10 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(15, 23, 42, 0.9);
+    background: var(--nav-bg);
     backdrop-filter: blur(20px);
     z-index: 1000;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--border);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
@@ -630,7 +636,7 @@ section::before {
     border-radius: 20px;
     overflow: hidden;
     transition: all 0.4s;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border);
     position: relative;
     text-decoration: none;
     color: inherit;
@@ -672,7 +678,7 @@ section::before {
 
 .project-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 40px var(--card-shadow);
 }
 
 .project-image {
@@ -724,9 +730,9 @@ section::before {
     padding: 0.5rem 0.75rem;
     font-size: 0.85rem;
     line-height: 1.4;
-    color: #fbbf24;
+    color: var(--note);
     background: rgba(251, 191, 36, 0.1);
-    border-left: 3px solid #fbbf24;
+    border-left: 3px solid var(--note);
     border-radius: 4px;
 }
 
@@ -744,7 +750,7 @@ section::before {
     border-radius: 15px;
     text-align: center;
     transition: all 0.3s;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border);
     position: relative;
     overflow: hidden;
 }
@@ -810,7 +816,7 @@ section::before {
     background: var(--dark-light);
     padding: 3rem;
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border);
     position: relative;
     overflow: hidden;
 }
@@ -848,8 +854,8 @@ section::before {
 .form-group textarea {
     width: 100%;
     padding: 1rem;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--surface-soft);
+    border: 1px solid var(--border);
     border-radius: 10px;
     color: var(--text);
     font-size: 1rem;
@@ -925,7 +931,7 @@ footer {
     background: var(--dark-light);
     padding: 3rem 2rem;
     text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid var(--border);
 }
 
 .social-links {
@@ -938,7 +944,7 @@ footer {
 .social-links a {
     width: 50px;
     height: 50px;
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--surface-soft);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -1018,7 +1024,7 @@ footer {
         top: 80px;
         left: -100%;
         width: 100%;
-        background: rgba(15, 23, 42, 0.98);
+        background: var(--nav-bg-solid);
         backdrop-filter: blur(20px);
         flex-direction: column;
         padding: 2rem;
@@ -1129,4 +1135,93 @@ footer {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
+}
+/* ============================================
+   MODE CLAIR
+   ============================================ */
+:root[data-theme="light"] {
+    color-scheme: light;
+    --dark: #f1f5f9;
+    --dark-light: #ffffff;
+    --text: #0f172a;
+    --text-muted: #475569;
+    --nav-bg: rgba(248, 250, 252, 0.9);
+    --nav-bg-solid: rgba(248, 250, 252, 0.98);
+    --border: rgba(15, 23, 42, 0.1);
+    --surface-soft: rgba(15, 23, 42, 0.04);
+    --card-shadow: rgba(15, 23, 42, 0.12);
+    --note: #b45309;
+}
+
+/* L'accueil garde son image sombre : on y conserve les couleurs claires */
+:root[data-theme="light"] .hero {
+    --text: #ffffff;
+    --text-muted: #cbd5e1;
+}
+
+/* Les étoiles blanches n'ont pas de sens sur fond clair */
+:root[data-theme="light"] body::after,
+:root[data-theme="light"] .stars-twinkle {
+    display: none;
+}
+
+:root[data-theme="light"] .particle.twinkle::before,
+:root[data-theme="light"] .particle.twinkle::after {
+    background: var(--primary);
+}
+
+:root[data-theme="light"] .skill-card,
+:root[data-theme="light"] .project-card,
+:root[data-theme="light"] .contact-form {
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+}
+
+/* Bouton de changement de thème */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    margin-left: 1rem;
+    padding: 0;
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    color: var(--text);
+    cursor: pointer;
+    transition: border-color 0.3s, transform 0.3s;
+}
+
+.theme-toggle:hover {
+    border-color: var(--primary);
+    transform: rotate(15deg);
+}
+
+.theme-toggle svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Affiche la lune en mode sombre, le soleil en mode clair */
+.theme-toggle .icon-sun,
+:root[data-theme="light"] .theme-toggle .icon-moon {
+    display: none;
+}
+
+:root[data-theme="light"] .theme-toggle .icon-sun {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .theme-toggle {
+        order: 1;
+        margin-left: 0;
+        margin-right: 1rem;
+    }
+}
+
+/* En mode clair, l'image d'accueil devient un bloc arrondi plutôt qu'un fond coupé net */
+:root[data-theme="light"] .hero-bg {
+    border-radius: 0 0 24px 24px;
 }

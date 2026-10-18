@@ -64,7 +64,9 @@ const translations = {
         'contact.send': 'Send message',
         'contact.sent': '✅ Message sent!',
         'contact.error': '❌ Sending failed',
-        'footer.rights': '&copy; Pierluigi SOPHIE - All rights reserved'
+        'footer.rights': '&copy; Pierluigi SOPHIE - All rights reserved',
+        'theme.toLight': 'Switch to light mode',
+        'theme.toDark': 'Switch to dark mode'
     },
     fr: {
         'hero.typed': [
@@ -73,7 +75,9 @@ const translations = {
             'Je suis toujours prêt pour de nouveaux défis'
         ],
         'contact.sent': '✅ Message envoyé !',
-        'contact.error': '❌ Erreur d\'envoi'
+        'contact.error': '❌ Erreur d\'envoi',
+        'theme.toLight': 'Passer en mode clair',
+        'theme.toDark': 'Passer en mode sombre'
     }
 };
 
@@ -119,6 +123,8 @@ function setLanguage(lang) {
         btn.setAttribute('aria-pressed', isActive);
     });
 
+    updateThemeButton();
+
     // Relance l'effet de typing dans la nouvelle langue
     texts = t('hero.typed');
     textIndex = 0;
@@ -131,6 +137,36 @@ function setLanguage(lang) {
 document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
 });
+
+// ============================================
+// MODE CLAIR / SOMBRE
+// ============================================
+// Le thème mémorisé est déjà appliqué par le petit script du <head>.
+const themeToggle = document.getElementById('themeToggle');
+const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+
+function isLightTheme() {
+    return document.documentElement.dataset.theme === 'light';
+}
+
+function updateThemeButton() {
+    themeToggle.setAttribute('aria-label', t(isLightTheme() ? 'theme.toDark' : 'theme.toLight'));
+    themeToggle.title = themeToggle.getAttribute('aria-label');
+    if (themeColorMeta) themeColorMeta.content = isLightTheme() ? '#f1f5f9' : '#0f172a';
+}
+
+themeToggle.addEventListener('click', () => {
+    const theme = isLightTheme() ? 'dark' : 'light';
+    if (theme === 'light') {
+        document.documentElement.dataset.theme = 'light';
+    } else {
+        delete document.documentElement.dataset.theme;
+    }
+    updateThemeButton();
+    try { localStorage.setItem('theme', theme); } catch (e) {}
+});
+
+updateThemeButton();
 
 // ============================================
 // EFFET DE TYPING
@@ -213,9 +249,10 @@ const EMAILJS_PUBLIC_KEY = 'gLctXJee4jfqAPnFC';
 const EMAILJS_SERVICE_ID = 'service_n3xcr87';
 const EMAILJS_TEMPLATE_ID = 'template_zlzk9jp';
 
-(function() {
+// Si EmailJS ne charge pas (bloqueur de publicité, réseau), le reste de la page doit continuer de fonctionner
+if (window.emailjs) {
     emailjs.init(EMAILJS_PUBLIC_KEY);
-})();
+}
 
 // ============================================
 // FORMULAIRE DE CONTACT
@@ -255,7 +292,11 @@ form.addEventListener('submit', function(e) {
     }
     updateDatalist('');
     
-    emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, this)
+    const sending = window.emailjs
+        ? emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, this)
+        : Promise.reject(new Error('EmailJS indisponible'));
+
+    sending
         .then(function(response) {
             submitBtn.classList.remove('loading');
             submitBtn.classList.add('success');
@@ -319,7 +360,14 @@ const SPREAD          = 28;     // dispersion autour du curseur (px)
 const FADE_DURATION   = 1200;   // durée de vie max (ms)
 const FADE_MIN        = 600;    // durée de vie min (ms)
 const DRIFT_MAX       = 15;     // dérive lente (px)
+const MAX_PARTICLES   = 120;    // plafond à l'écran (évite de saturer les petites machines)
 // ───────────────────────────────────────
+
+// Pas de traînée sur écran tactile ni si le visiteur demande moins d'animations
+const particlesEnabled =
+  window.matchMedia('(hover: hover) and (pointer: fine)').matches &&
+  !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let aliveParticles = 0;
 
 const cursorDot = document.getElementById('cursorDot');
 let mouseX = window.innerWidth / 2;
@@ -341,8 +389,10 @@ document.addEventListener('mousemove', (e) => {
   lastX = mouseX;
   lastY = mouseY;
 
-  // Plus le curseur va vite, plus on génère de particules
-  const count = Math.min(TRAIL_DENSITY + Math.floor(speed / 12), 8);
+  if (!particlesEnabled) return;
+
+  // Plus le curseur va vite, plus on génère de particules (dans la limite du plafond)
+  const count = Math.min(TRAIL_DENSITY + Math.floor(speed / 12), 8, MAX_PARTICLES - aliveParticles);
 
   for (let i = 0; i < count; i++) {
     // Spawn légèrement décalé dans le temps pour un effet naturel
@@ -351,6 +401,7 @@ document.addEventListener('mousemove', (e) => {
 });
 
 function spawnParticle(x, y, speed) {
+  if (aliveParticles >= MAX_PARTICLES) return;
   const el = document.createElement('div');
   el.classList.add('particle');
 
@@ -373,9 +424,12 @@ function spawnParticle(x, y, speed) {
   el.style.height = size + 'px';
 
   // ─ Couleur : blanc avec légère variation de température
+  //   (en mode clair : violet de la charte, sinon invisible sur fond blanc)
   const warmth = Math.random();
   let color;
-  if (warmth < 0.7) {
+  if (isLightTheme()) {
+    color = `rgba(99, 102, 241, ${0.35 + Math.random() * 0.5})`;
+  } else if (warmth < 0.7) {
     const alpha = 0.4 + Math.random() * 0.6;
     color = `rgba(255, 255, 255, ${alpha})`;
   } else if (warmth < 0.88) {
@@ -390,7 +444,7 @@ function spawnParticle(x, y, speed) {
   el.style.background = color;
 
   // Glow sur les plus grosses
-  if (size > 3) {
+  if (size > 3 && !isLightTheme()) {
     el.style.boxShadow = `0 0 ${size * 2}px ${size * 0.5}px rgba(255,255,255,0.15)`;
   }
 
@@ -403,6 +457,7 @@ function spawnParticle(x, y, speed) {
   el.style.top = py + 'px';
 
   document.body.appendChild(el);
+  aliveParticles++;
 
   // ─ Animation manuelle (plus fluide que CSS pour beaucoup de particules)
   const lifetime = FADE_MIN + Math.random() * (FADE_DURATION - FADE_MIN);
@@ -432,6 +487,7 @@ function spawnParticle(x, y, speed) {
       requestAnimationFrame(animate);
     } else {
       el.remove();
+      aliveParticles--;
     }
   }
 
