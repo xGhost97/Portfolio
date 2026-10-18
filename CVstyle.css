@@ -593,4 +593,10 @@ body {
     .cv-body {
         page-break-inside: avoid;
     }
+
+    /* Les sections apparaissent au scroll : à l'impression, tout doit être visible */
+    .section {
+        opacity: 1 !important;
+        transform: none !important;
+    }
 }

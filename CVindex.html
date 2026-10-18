@@ -11,7 +11,7 @@
 </head>
 <body>
     <!-- Bouton télécharger CV -->
-    <a href="./assets/CV_Pierluigi_SOPHIE.pdf" download class="cv-download-btn" title="Télécharger le CV en PDF" data-i18n-title="cv.download">
+    <a href="./assets/CV_Pierluigi_SOPHIE.pdf" download class="cv-download-btn" title="Télécharger le CV en PDF" data-i18n-title="cv.download" data-i18n-href="cv.pdf">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
             <polyline points="7 10 12 15 17 10"/>
@@ -95,6 +95,10 @@
                         <div class="tech-item">GitHub</div>
                         <div class="tech-item">TypeScript</div>
                         <div class="tech-item">REST API</div>
+                        <div class="tech-item">Three.js</div>
+                        <div class="tech-item">Prisma</div>
+                        <div class="tech-item">PostgreSQL</div>
+                        <div class="tech-item">Stripe</div>
                     </div>
                 </div>
                 <!-- Langues -->
@@ -132,7 +136,7 @@
                 <div class="section">
                     <h2 class="section-title" data-i18n="cv.profile">Profil</h2>
                     <p class="profile-text" data-i18n="cv.profileText">
-                        Développeur web passionné avec une expertise en JavaScript et React. Spécialisé dans la création d'applications web modernes et performantes. Toujours à la recherche de nouveaux défis et désireux d'apprendre les dernières technologies du web.
+                        Développeur web passionné avec une expertise en JavaScript, React et Node.js. Je conçois des applications web complètes, de l'interface au paiement en ligne, comme LocAntilles, en production sur locantilles.fr. Toujours à la recherche de nouveaux défis et désireux d'apprendre les dernières technologies du web.
                     </p>
                 </div>
 
@@ -142,20 +146,20 @@
                     
                     <div class="timeline-item">
                         <div class="timeline-date" data-i18n="cv.present">2023 - Présent</div>
-                        <div class="timeline-title">Full-Stack</div>
+                        <div class="timeline-title" data-i18n="cv.fullStack">Développeur Full-Stack</div>
                         <div class="timeline-company" data-i18n="cv.personalProjects">Projets Personnels</div>
                         <div class="timeline-description">
                             <ul>
-                                <li data-i18n="cv.exp1a">Développement d'applications web avec React et Node.js</li>
-                                <li data-i18n="cv.exp1b">Intégration d'API REST et gestion de bases de données MongoDB</li>
-                                <li data-i18n="cv.exp1c">Optimisation des performances et responsive design</li>
+                                <li data-i18n="cv.exp1a">LocAntilles : plateforme de réservation d'activités en Martinique, en production (API Node.js/Express, paiement Stripe, espace organisateur)</li>
+                                <li data-i18n="cv.exp1b">Bomb Island : jeu 3D jouable dans le navigateur, développé avec Three.js</li>
+                                <li data-i18n="cv.exp1c">Analytics Hub : outil de mesure d'audience multi-projets (Node.js, SQLite, PWA)</li>
                             </ul>
                         </div>
                     </div>
                     
                     <div class="timeline-item">
                         <div class="timeline-date">2022 - 2023</div>
-                        <div class="timeline-title"> Front-End</div>
+                        <div class="timeline-title" data-i18n="cv.frontEnd">Développeur Front-End</div>
                         <div class="timeline-company" data-i18n="cv.personalProjects">Projets Personnels</div>
                         <div class="timeline-description">
                             <ul>
@@ -188,6 +192,22 @@
                     <h2 class="section-title" data-i18n="cv.projects">Projets Principaux</h2>
                     
                     <div class="project-card">
+                        <div class="project-title">LocAntilles</div>
+                        <div class="project-tech">JavaScript • Node.js • Express • Prisma • PostgreSQL • Stripe</div>
+                        <div class="project-description" data-i18n="cv.locText">
+                            Plateforme de réservation d'activités et de séjours en Martinique : catalogue, réservation et paiement en ligne, espace organisateur pour les prestataires et API REST sécurisée (JWT).
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-title">Bomb Island</div>
+                        <div class="project-tech">JavaScript • Three.js • WebGL</div>
+                        <div class="project-description" data-i18n="cv.bombText">
+                            Jeu 3D jouable directement dans le navigateur : rendu temps réel, effets de particules et interface de jeu sur mesure.
+                        </div>
+                    </div>
+
+                    <div class="project-card">
                         <div class="project-title" data-i18n="cv.kasa">Projet Kasa</div>
                         <div class="project-tech">React • JavaScript • Responsive Design</div>
                         <div class="project-description" data-i18n="cv.kasaText">
@@ -200,14 +220,6 @@
                         <div class="project-tech">JavaScript • DOM • API REST</div>
                         <div class="project-description" data-i18n="cv.bluelText">
                             Site portfolio interactif avec gestion d'authentification utilisateur, manipulation du DOM et intégration d'API pour la gestion dynamique des projets.
-                        </div>
-                    </div>
-                    
-                    <div class="project-card">
-                        <div class="project-title">LocAntilles</div>
-                        <div class="project-tech">HTML • CSS • Responsive</div>
-                        <div class="project-description" data-i18n="cv.locText">
-                            Site de location avec un design moderne et une intégration responsive optimisée pour tous les appareils.
                         </div>
                     </div>
                 </div>
