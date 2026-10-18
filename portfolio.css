@@ -718,6 +718,18 @@ section::before {
     line-height: 1.6;
 }
 
+/* Avertissement sous la description (ex. temps de démarrage d'un serveur gratuit) */
+.project-note {
+    margin-top: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: #fbbf24;
+    background: rgba(251, 191, 36, 0.1);
+    border-left: 3px solid #fbbf24;
+    border-radius: 4px;
+}
+
 /* Skills */
 .skills-grid {
     display: grid;

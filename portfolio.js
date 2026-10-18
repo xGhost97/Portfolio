@@ -39,10 +39,11 @@ const translations = {
         'p5.description': 'A photographer\'s website presenting her photos and work.',
         'p6.title': 'Solar System',
         'p6.date': 'January 4, 2026',
-        'p6.description': 'Our beautiful solar system',
+        'p6.description': 'Explore the solar system in 3D: orbit around the planets, search for one and discover its key facts.',
         'p7.title': 'Bomb Island',
         'p7.date': '2026',
         'p7.description': '3D game playable in the browser: aim, charge and throw your bombs across the island.',
+        'p7.note': '⏳ First load can take up to 1 minute: the free server is waking up.',
         'p8.title': 'LocAntilles',
         'p8.date': 'October 10, 2025',
         'p8.description': 'Platform to book activities, stays and services in Martinique with local providers.',
@@ -67,7 +68,7 @@ const translations = {
     },
     fr: {
         'hero.typed': [
-            'Je crée des sites web modernes et réactif',
+            'Je crée des sites web modernes et réactifs',
             'Passionné par le web et le design',
             'Je suis toujours prêt pour de nouveaux défis'
         ],
