@@ -220,6 +220,9 @@ function renderProjectModal(works) {
       .then(response => response.json())
       .then(data => {
         figure.remove();
+        // Met aussi à jour la galerie principale
+        allProject = allProject.filter(work => work.id !== projectId);
+        renderProject(allProject);
       })
       
       
@@ -340,10 +343,16 @@ form.addEventListener('submit', function(event) {
   })
   .then(response => response.json())
   .then(data => {
-    console.log(data);
+    // ajout du nouveau projet dans la galerie et la modale
+    allProject.push(data);
+    renderProject(allProject);
+    renderProjectModal(allProject);
+
     // réinitialisation du formulaire et de la prévisualisation de l'image
     form.reset();
-    previewContainer.innerHTML = '';
+    fileInput.value = '';
+    form.querySelectorAll('div > img').forEach(img => img.parentElement.remove());
+    document.querySelector('.project-modal2').style.display = '';
   })
   .catch(error => console.error('Erreur lors de l\'ajout du projet :', error));
   });

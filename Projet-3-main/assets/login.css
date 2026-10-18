@@ -116,6 +116,15 @@ footer{
     text-align: center;
 }
 
+/* Identifiants de la démo en ligne */
+.demo-info{
+    margin-top: 20px;
+    text-align: center;
+    font-family: "Work Sans";
+    font-size: 14px;
+    color: #3D3D3D;
+}
+
 #myForm button{
     margin-left: 50px;
     margin-right: 50px;
