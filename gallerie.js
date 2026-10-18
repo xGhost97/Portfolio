@@ -1,32 +1,32 @@
 // Données de la galerie
 const galleryData = [
     {
-        src: '/Certification/Certification_Herbergement_de_site.jpg',
+        src: '/Certification/Certification_Herbergement_de_site.webp',
         title: 'Hébergement de site',
         description: 'Certification professionnelle'
     },
     {
-        src: '/Certification/Certification_HTML5_CSS3.jpg',
+        src: '/Certification/Certification_HTML5_CSS3.webp',
         title: 'HTML5 & CSS3',
         description: 'Développement web frontend'
     },
     {
-        src: '/Certification/Certificat-Git-Github.jpg',
+        src: '/Certification/Certificat-Git-Github.webp',
         title: 'Git & GitHub',
         description: 'Gestion de versions'
     },
     {
-        src: '/Certification/Certification-JavaScript-Dynamique.jpg',
+        src: '/Certification/Certification-JavaScript-Dynamique.webp',
         title: 'JavaScript Dynamique',
         description: 'Programmation interactive'
     },
     {
-        src: '/Certification/Certification Openclassroom JavaScript.jpg',
+        src: '/Certification/Certification Openclassroom JavaScript.webp',
         title: 'JavaScript Avancé',
         description: 'OpenClassrooms'
     },
     {
-        src: '/Certification/Certification Veille Informationnelle.jpg',
+        src: '/Certification/Certification Veille Informationnelle.webp',
         title: 'Veille Informationnelle',
         description: 'Méthodologie professionnelle'
     }
