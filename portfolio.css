@@ -370,40 +370,6 @@ nav .container {
     padding-top: 80px;
 }
 
-.hero-bg {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-.hero-bg::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(15, 23, 42, 0.7);
-    z-index: 1;
-}
-
-.hero-bg-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    animation: slowZoom 20s ease-in-out infinite alternate;
-}
-
-@keyframes slowZoom {
-    0% {
-        transform: scale(1);
-    }
-    100% {
-        transform: scale(1.1);
-    }
-}
-
 .hero-content {
     position: relative;
     z-index: 2;
@@ -1153,10 +1119,10 @@ footer {
     --note: #b45309;
 }
 
-/* L'accueil garde son image sombre : on y conserve les couleurs claires */
-:root[data-theme="light"] .hero {
-    --text: #ffffff;
-    --text-muted: #cbd5e1;
+/* Le dégradé du nom part du blanc en mode sombre : en mode clair il part du bleu nuit */
+:root[data-theme="light"] .hero h1 {
+    background: linear-gradient(135deg, #0f172a, var(--primary-dark));
+    -webkit-background-clip: text;
 }
 
 /* Les étoiles blanches n'ont pas de sens sur fond clair */
@@ -1219,9 +1185,4 @@ footer {
         margin-left: 0;
         margin-right: 1rem;
     }
-}
-
-/* En mode clair, l'image d'accueil devient un bloc arrondi plutôt qu'un fond coupé net */
-:root[data-theme="light"] .hero-bg {
-    border-radius: 0 0 24px 24px;
 }
