@@ -24,6 +24,7 @@ const translations = {
         'about.text': 'Web developer, I design and build modern, high-performance websites tailored to users’ needs. Committed to code quality, user experience and best practices, I focus on creating reliable, intuitive and scalable web solutions.',
         'projects.title': 'Projects',
         'projects.subtitle': 'Discover my latest work',
+        'projects.code': 'Source code',
         'p3.title': 'Sophie Bluel Project',
         'p3.date': 'May 14, 2023',
         'p3.description': 'This project taught me DOM manipulation in JavaScript, user login and API calls.',

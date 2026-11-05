@@ -648,10 +648,48 @@ section::before {
 }
 
 .project-image {
+    display: block;
     width: 100%;
     height: 220px;
     object-fit: cover;
     transition: transform 0.4s;
+}
+
+/* Cards avec un lien GitHub : la card contient deux liens (projet + code) */
+article.project-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-link {
+    display: block;
+    flex: 1;
+    color: inherit;
+    text-decoration: none;
+}
+
+.project-github {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    align-self: flex-start;
+    margin: 0 1.5rem 1.5rem;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.project-github:hover,
+.project-github:focus-visible {
+    color: var(--text);
+    border-color: var(--primary);
 }
 
 /* Champ piège anti-spam : hors écran (pas display:none, que certains robots détectent) */
