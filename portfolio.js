@@ -9,9 +9,11 @@ const translations = {
         'nav.home': 'Home',
         'nav.projects': 'Projects',
         'nav.skills': 'Skills',
+        'nav.cv': 'Résumé',
         'nav.contact': 'Contact',
         'hero.subtitle': 'Front-end Developer',
         'hero.ctaProjects': 'See my projects',
+        'hero.ctaCv': 'See my résumé',
         'hero.ctaContact': 'Contact me',
         'hero.typed': [
             'I build modern, responsive websites',
@@ -19,18 +21,15 @@ const translations = {
             'Always ready for new challenges'
         ],
         'about.title': 'About',
-        'about.text': 'Passionate about web development, I build modern, high-performance digital experiences. Explore my portfolio to discover my work and technical expertise.',
+        'about.text': 'Web developer, I design and build modern, high-performance websites tailored to users’ needs. Committed to code quality, user experience and best practices, I focus on creating reliable, intuitive and scalable web solutions.',
         'projects.title': 'Projects',
         'projects.subtitle': 'Discover my latest work',
-        'p1.title': 'Curriculum Vitae',
-        'p1.date': 'July 15, 2023',
-        'p1.description': 'Online résumé built with HTML/CSS to present my background professionally.',
         'p3.title': 'Sophie Bluel Project',
         'p3.date': 'May 14, 2023',
         'p3.description': 'This project taught me DOM manipulation in JavaScript, user login and API calls.',
         'p4.title': 'Kasa Project',
         'p4.date': 'June 23, 2023',
-        'p4.description': 'Rental website built entirely with React — click HOME when you land on the site.',
+        'p4.description': 'Rental website built entirely with React: property listings, detailed pages with an image carousel and an About page.',
         'p5.title': 'Photographer website',
         'p5.date': 'May 29, 2023',
         'p5.description': 'A photographer\'s website presenting her photos and work.',
@@ -38,7 +37,7 @@ const translations = {
         'p6.date': 'January 4, 2026',
         'p6.description': 'Explore the solar system in 3D: orbit around the planets, search for one and discover its key facts.',
         'p7.title': 'Bomb Island',
-        'p7.date': '2026',
+        'p7.date': 'October 2026',
         'p7.description': '3D game playable in the browser: aim, charge and throw your bombs across the island.',
         'p7.note': '⏳ First load can take up to 1 minute: the free server is waking up.',
         'p8.title': 'LocAntilles',
@@ -274,6 +273,16 @@ emailInput.addEventListener('input', e => {
     updateDatalist(e.target.value);
 });
 
+// Anti-spam : un robot remplit le champ piège ou envoie le formulaire
+// quelques instants après le chargement ; un humain ne fait ni l'un ni l'autre.
+const honeypot = document.getElementById('website');
+const formLoadedAt = Date.now();
+const MIN_FILL_TIME = 3000; // ms
+
+function looksLikeSpam() {
+    return honeypot.value.trim() !== '' || Date.now() - formLoadedAt < MIN_FILL_TIME;
+}
+
 form.addEventListener('submit', function(e) {
     e.preventDefault();
     
@@ -286,9 +295,12 @@ form.addEventListener('submit', function(e) {
     }
     updateDatalist('');
     
-    const sending = window.emailjs
-        ? emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, this)
-        : Promise.reject(new Error('EmailJS indisponible'));
+    // Pour un robot, on simule un envoi réussi sans rien transmettre
+    const sending = looksLikeSpam()
+        ? Promise.resolve()
+        : window.emailjs
+            ? emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, this)
+            : Promise.reject(new Error('EmailJS indisponible'));
 
     sending
         .then(function(response) {
@@ -314,6 +326,40 @@ form.addEventListener('submit', function(e) {
                 submitBtn.disabled = false;
             }, 3000);
         });
+});
+
+// ============================================
+// VIDÉO AU SURVOL DES CARDS
+// ============================================
+// La capture sert de miniature ; la vidéo démarre au survol (ou au focus clavier)
+// et la capture revient dès que la souris quitte la card.
+document.querySelectorAll('.project-card').forEach(card => {
+    const video = card.querySelector('.project-video');
+    if (!video) return;
+
+    let hovered = false;
+
+    function start() {
+        hovered = true;
+        video.currentTime = 0;
+        const playing = video.play();
+        if (playing) {
+            // La souris a pu repartir avant que la vidéo ne soit prête
+            playing.then(() => { if (hovered) card.classList.add('is-playing'); }).catch(() => {});
+        }
+    }
+
+    function stop() {
+        hovered = false;
+        card.classList.remove('is-playing');
+        video.pause();
+        video.currentTime = 0;
+    }
+
+    card.addEventListener('mouseenter', start);
+    card.addEventListener('mouseleave', stop);
+    card.addEventListener('focus', start);
+    card.addEventListener('blur', stop);
 });
 
 // ============================================

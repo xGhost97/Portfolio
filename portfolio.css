@@ -654,6 +654,40 @@ section::before {
     transition: transform 0.4s;
 }
 
+/* Champ piège anti-spam : hors écran (pas display:none, que certains robots détectent) */
+.form-trap {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* Miniature + vidéo lancée au survol (Bomb Island) */
+.project-media {
+    position: relative;
+    overflow: hidden;
+}
+
+.project-media .project-image {
+    display: block;
+}
+
+.project-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.project-card.is-playing .project-video {
+    opacity: 1;
+}
+
 .project-card:hover .project-image {
     transform: scale(1.1);
 }
